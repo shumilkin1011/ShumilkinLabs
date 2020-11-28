@@ -1,0 +1,22 @@
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\bin\Debug\ShumilkinLabs.exe
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\bin\Debug\ShumilkinLabs.pdb
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Form1.resources
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Properties.Resources.resources
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.csproj.GenerateResource.cache
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.csproj.CoreCompileInputs.cache
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.exe
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.pdb
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Lab2.resources
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.csprojAssemblyReference.cache
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Lab1.resources
+C:\Users\Sergey\source\repos\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Lab3.resources
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\bin\Debug\ShumilkinLabs.exe
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\bin\Debug\ShumilkinLabs.pdb
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.csprojAssemblyReference.cache
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Form1.resources
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Lab1.resources
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Lab2.resources
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.Properties.Resources.resources
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.csproj.GenerateResource.cache
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.exe
+W:\Новая папка (2)\ShumilkinLabs\ShumilkinLabs\obj\Debug\ShumilkinLabs.pdb
