@@ -8,7 +8,8 @@ using MultiParse;
 
 namespace ShumilkinLabs
 {
-    public partial class Lab5 : Form
+    //D=(2*(B*2,25+G)+C*3,14)*A+F*E
+    public partial class Lab5beta : Form
     {
         private string expression = "";
         private int[,] transTable = new int[,]
@@ -20,14 +21,14 @@ namespace ShumilkinLabs
 
         private Dictionary<string, int> operIndxs1;
         private Dictionary<string, int> operIndxs2;
-        private Stack<string> operands;
+        private Stack<OperandNode> operands;
         private Stack<string> operations;
         private int indx = 0;
 
-        public Lab5()
+        public Lab5beta()
         {
             InitializeComponent();
-            operands = new Stack<string>();
+            operands = new Stack<OperandNode>();
             operations = new Stack<string>();
             operIndxs1 = new Dictionary<string, int>();
             operIndxs2 = new Dictionary<string, int>();
@@ -45,7 +46,8 @@ namespace ShumilkinLabs
 
         private void Compute_Click(object sender, EventArgs e)
         {
-            indx = 0;
+            string beta = "";
+            indx = 2;
             operations.Clear();
             operands.Clear();
 
@@ -56,10 +58,22 @@ namespace ShumilkinLabs
 
             do
             {
-                //2*(5+6)+(2+4)*7
-                if (char.IsDigit(expression[indx])) {
-                    operands.Push(readNumber(indx));
-                    indx = indx+operands.Peek().Length;
+                char next = expression[indx];
+                if (next != '+' && next != '*' && next != '(' && next != ')' && next != '=' && next != '$')
+                {
+                    if (char.IsDigit(next))
+                    {
+                        operands.Push( new OperandNode(readNumber(indx), 0) );
+                        indx = indx + operands.Peek().code.Length-1;
+                        beta += Environment.NewLine + "new DIGIT: " + operands.Peek().code;
+                    }
+                    else if (char.IsLetter(next))
+                    {
+                        operands.Push( new OperandNode(readLetter(indx), 0) );
+                        indx = indx + operands.Peek().code.Length;
+                        beta += Environment.NewLine + "new LETTER: " + operands.Peek().code;
+
+                    }
                 }
                 action = transTable[operIndxs1[operations.Peek()], operIndxs2[expression[indx].ToString()] ];
                 makeAction(action);
@@ -67,10 +81,19 @@ namespace ShumilkinLabs
 
                } while (action != 4);
 
+            string result = "Исходное выражение:" + Environment.NewLine +
+                expression+ Environment.NewLine +
+                operands.Pop().code + Environment.NewLine + 
+                "STORE " + expression[0];
 
-            textAnsw.Text = operands.Pop();
+            Lab5_2beta answ = new Lab5_2beta(result.ToString());
+            answ.FormClosed += SubFormClosed;
+            answ.ShowDialog();
         }
-
+        public void SubFormClosed(Object sender, EventArgs e)
+        {
+            this.Show();
+        }
         private void makeAction(int action)
         {
             switch(action)
@@ -80,7 +103,6 @@ namespace ShumilkinLabs
                     break;
                 case 3:
                     throw new Exception("Wrong operation!");
-                    break;
                 case 4:
                     break;
                 case 5:
@@ -95,27 +117,45 @@ namespace ShumilkinLabs
 
         private void computeOperation()
         {
-            int a = int.Parse(operands.Pop());
-            int b = int.Parse(operands.Pop());
-
-            switch(operations.Pop())
+            OperandNode a = operands.Pop();
+            OperandNode b = operands.Pop();
+            string code;
+            int lvl = Math.Max(a.lvl, b.lvl);
+            string n = Environment.NewLine;
+            switch (operations.Pop())
             {
                 case "+":
-                    operands.Push((a + b).ToString());
+                    code = $"{a.code}{n}STORE {lvl}{n}LOAD {b.code}{n}ADD {lvl}";
+                    operands.Push(new OperandNode(code, lvl+1));
                     break;
                 case "*":
-                    operands.Push((a * b).ToString());
+                    code = $"{a.code}{n}STORE {lvl}{n}LOAD {b.code}{n}MPY {lvl}";
+                    operands.Push(new OperandNode(code, lvl+1));
                     break;
             }
         }
         private string readNumber(int indx)
         {
-            string res = "";
+            string res = "=";
             while(char.IsDigit(expression[indx]) || expression[indx] == ',')
             {
                 res += expression[indx];
                 indx++;
             }
+            return res;
+        }
+
+        private string readLetter(int indx)
+        {
+            string res = "";
+            char next = expression[indx];
+
+            if (char.IsLetter(next) && next != '+' && next != '*' && next != '(' && next != ')' && next != '=' && next != '$')
+            {
+                res += next;
+                indx++;
+            }
+            
             return res;
         }
 
@@ -160,8 +200,18 @@ namespace ShumilkinLabs
         private void menuClear_Click(object sender, EventArgs e)
         {
             textExpr.Text = "";
-            textAnsw.Text = "";
         }
 
+    }
+    
+    class OperandNode 
+    {
+        public OperandNode(string code, int lvl)
+        {
+            this.code = code;
+            this.lvl = lvl;
+        }
+        public string code;
+        public int lvl;
     }
 }

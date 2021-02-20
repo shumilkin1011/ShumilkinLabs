@@ -54,10 +54,11 @@ namespace ShumilkinLabs
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var Lab5 = new Lab5();
+            var Lab5 = new Lab5beta();
             Lab5.FormClosed += lab1_Closed1;
             Lab5.Show();
             this.Hide();
         }
+        //A=2,75*(8+B)+(9+2,1)*C
     }
 }

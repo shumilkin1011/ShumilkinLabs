@@ -80,7 +80,6 @@ namespace ShumilkinLabs
                     break;
                 case 3:
                     throw new Exception("Wrong operation!");
-                    break;
                 case 4:
                     break;
                 case 5:
