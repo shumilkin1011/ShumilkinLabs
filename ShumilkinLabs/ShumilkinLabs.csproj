@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{051ECA95-B502-470D-B536-15197A0609B1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ShumilkinLabs</RootNamespace>
+    <AssemblyName>ShumilkinLabs</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>puzzle_expansion_icon_153871.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultCasts\MPBooleanCast.cs" />
+    <Compile Include="DefaultCasts\MPByteCast.cs" />
+    <Compile Include="DefaultCasts\MPCharCast.cs" />
+    <Compile Include="DefaultCasts\MPDecimalCast.cs" />
+    <Compile Include="DefaultCasts\MPDoubleCast.cs" />
+    <Compile Include="DefaultCasts\MPInt16Cast.cs" />
+    <Compile Include="DefaultCasts\MPInt32Cast.cs" />
+    <Compile Include="DefaultCasts\MPInt64Cast.cs" />
+    <Compile Include="DefaultCasts\MPSByteCast.cs" />
+    <Compile Include="DefaultCasts\MPSingleCast.cs" />
+    <Compile Include="DefaultCasts\MPStringCast.cs" />
+    <Compile Include="DefaultCasts\MPUInt16Cast.cs" />
+    <Compile Include="DefaultCasts\MPUInt32Cast.cs" />
+    <Compile Include="DefaultCasts\MPUInt64Cast.cs" />
+    <Compile Include="DefaultDataTypes\MPBoolean.cs" />
+    <Compile Include="DefaultDataTypes\MPByte.cs" />
+    <Compile Include="DefaultDataTypes\MPChar.cs" />
+    <Compile Include="DefaultDataTypes\MPDecimal.cs" />
+    <Compile Include="DefaultDataTypes\MPDouble.cs" />
+    <Compile Include="DefaultDataTypes\MPInt16.cs" />
+    <Compile Include="DefaultDataTypes\MPInt32.cs" />
+    <Compile Include="DefaultDataTypes\MPInt64.cs" />
+    <Compile Include="DefaultDataTypes\MPSByte.cs" />
+    <Compile Include="DefaultDataTypes\MPSingle.cs" />
+    <Compile Include="DefaultDataTypes\MPString.cs" />
+    <Compile Include="DefaultDataTypes\MPUInt16.cs" />
+    <Compile Include="DefaultDataTypes\MPUInt32.cs" />
+    <Compile Include="DefaultDataTypes\MPUInt64.cs" />
+    <Compile Include="DefaultDataTypes\MPVariable.cs" />
+    <Compile Include="DefaultFunctions\MPAbs.cs" />
+    <Compile Include="DefaultFunctions\MPAcos.cs" />
+    <Compile Include="DefaultFunctions\MPAsin.cs" />
+    <Compile Include="DefaultFunctions\MPAtan.cs" />
+    <Compile Include="DefaultFunctions\MPAtan2.cs" />
+    <Compile Include="DefaultFunctions\MPCeiling.cs" />
+    <Compile Include="DefaultFunctions\MPCos.cs" />
+    <Compile Include="DefaultFunctions\MPCosh.cs" />
+    <Compile Include="DefaultFunctions\MPExp.cs" />
+    <Compile Include="DefaultFunctions\MPFloor.cs" />
+    <Compile Include="DefaultFunctions\MPLog.cs" />
+    <Compile Include="DefaultFunctions\MPLog10.cs" />
+    <Compile Include="DefaultFunctions\MPMax.cs" />
+    <Compile Include="DefaultFunctions\MPMin.cs" />
+    <Compile Include="DefaultFunctions\MPPow.cs" />
+    <Compile Include="DefaultFunctions\MPRound.cs" />
+    <Compile Include="DefaultFunctions\MPSign.cs" />
+    <Compile Include="DefaultFunctions\MPSin.cs" />
+    <Compile Include="DefaultFunctions\MPSqrt.cs" />
+    <Compile Include="DefaultFunctions\MPTan.cs" />
+    <Compile Include="DefaultFunctions\MPTanh.cs" />
+    <Compile Include="DefaultFunctions\MPTruncate.cs" />
+    <Compile Include="DefaultOperators\MPAddition.cs" />
+    <Compile Include="DefaultOperators\MPAssignment.cs" />
+    <Compile Include="DefaultOperators\MPComplement.cs" />
+    <Compile Include="DefaultOperators\MPConditionalAnd.cs" />
+    <Compile Include="DefaultOperators\MPConditionalOr.cs" />
+    <Compile Include="DefaultOperators\MPDivision.cs" />
+    <Compile Include="DefaultOperators\MPEquality.cs" />
+    <Compile Include="DefaultOperators\MPInequality.cs" />
+    <Compile Include="DefaultOperators\MPLeftShift.cs" />
+    <Compile Include="DefaultOperators\MPLogicalAnd.cs" />
+    <Compile Include="DefaultOperators\MPLogicalOr.cs" />
+    <Compile Include="DefaultOperators\MPLogicalXOr.cs" />
+    <Compile Include="DefaultOperators\MPModulo.cs" />
+    <Compile Include="DefaultOperators\MPMultiplication.cs" />
+    <Compile Include="DefaultOperators\MPNegative.cs" />
+    <Compile Include="DefaultOperators\MPNot.cs" />
+    <Compile Include="DefaultOperators\MPPositive.cs" />
+    <Compile Include="DefaultOperators\MPRelationalLarger.cs" />
+    <Compile Include="DefaultOperators\MPRelationalLargerEqual.cs" />
+    <Compile Include="DefaultOperators\MPRelationalSmaller.cs" />
+    <Compile Include="DefaultOperators\MPRelationalSmallerEqual.cs" />
+    <Compile Include="DefaultOperators\MPRightShift.cs" />
+    <Compile Include="DefaultOperators\MPSubtraction.cs" />
+    <Compile Include="Expression.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lab4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab4.Designer.cs">
+      <DependentUpon>Lab4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lab1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab1.Designer.cs">
+      <DependentUpon>Lab1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lab2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab2.Designer.cs">
+      <DependentUpon>Lab2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lab3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab3.designer.cs">
+      <DependentUpon>Lab3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lab4_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab4_2.Designer.cs">
+      <DependentUpon>Lab4_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MPDataType.cs" />
+    <Compile Include="MPDefault.cs" />
+    <Compile Include="MPFunction.cs" />
+    <Compile Include="MPOperator.cs" />
+    <Compile Include="MPSpecialCharacters.cs" />
+    <Compile Include="ParseException.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab4.resx">
+      <DependentUpon>Lab4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab1.resx">
+      <DependentUpon>Lab1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab2.resx">
+      <DependentUpon>Lab2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab3.resx">
+      <DependentUpon>Lab3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab4_2.resx">
+      <DependentUpon>Lab4_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="puzzle_expansion_icon_153871.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
