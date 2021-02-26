@@ -8,6 +8,7 @@ using MultiParse;
 
 namespace ShumilkinLabs
 {
+    //D=(2*(B*2,25+G)+C*3,14)*A+F*E
     public partial class Lab5 : Form
     {
         private string expression = "";
@@ -20,17 +21,19 @@ namespace ShumilkinLabs
 
         private Dictionary<string, int> operIndxs1;
         private Dictionary<string, int> operIndxs2;
-        private Stack<string> operands;
+        private Stack<OperandNode> operands;
         private Stack<string> operations;
         private int indx = 0;
+        private Hashtable hashtable;
 
         public Lab5()
         {
             InitializeComponent();
-            operands = new Stack<string>();
+            operands = new Stack<OperandNode>();
             operations = new Stack<string>();
             operIndxs1 = new Dictionary<string, int>();
             operIndxs2 = new Dictionary<string, int>();
+            hashtable = new Hashtable();
             operIndxs1.Add("+", 0);
             operIndxs1.Add("*", 1);
             operIndxs1.Add("(", 2);
@@ -45,21 +48,34 @@ namespace ShumilkinLabs
 
         private void Compute_Click(object sender, EventArgs e)
         {
-            indx = 0;
+            string beta = "";
+            indx = 2;
             operations.Clear();
             operands.Clear();
 
             expression = textExpr.Text + "$";
             expression.Replace('.', ',');
+            hashtable.Add(expression[0].ToString(), null);
             int action;
             operations.Push("$");
 
             do
             {
-                //2*(5+6)+(2+4)*7
-                if (char.IsDigit(expression[indx])) {
-                    operands.Push(readNumber(indx));
-                    indx = indx+operands.Peek().Length;
+                char next = expression[indx];
+                if (next != '+' && next != '*' && next != '(' && next != ')' && next != '=' && next != '$')
+                {
+                    if (char.IsDigit(next))
+                    {
+                        operands.Push( new OperandNode(readNumber(indx), 0) );
+                        indx = indx + operands.Peek().code.Length-1;
+                    }
+                    else if (char.IsLetter(next))
+                    {
+                        operands.Push( new OperandNode(readLetter(indx), 0) );
+                        indx = indx + operands.Peek().code.Length;
+                        if(!hashtable.ContainsKey(operands.Peek().code))
+                            hashtable.Add(operands.Peek().code, null);
+                    }
                 }
                 action = transTable[operIndxs1[operations.Peek()], operIndxs2[expression[indx].ToString()] ];
                 makeAction(action);
@@ -67,10 +83,31 @@ namespace ShumilkinLabs
 
                } while (action != 4);
 
-
-            textAnsw.Text = operands.Pop();
+            showResults();
         }
 
+        private void showResults()
+        {
+            string n = Environment.NewLine;
+            string result = "Исходное выражение:" + n + n +
+                expression + n +
+                operands.Pop().code + n +
+                "STORE " + expression[0] + n + n;
+            result += "Сохраненные идентификаторы:" + n;
+
+            foreach (DictionaryEntry entry in hashtable)
+            {
+                result += entry.Key + ": empty\t";
+            }
+
+            Lab5_2 answ = new Lab5_2(result.ToString());
+            answ.FormClosed += SubFormClosed;
+            answ.ShowDialog();
+        }
+        public void SubFormClosed(Object sender, EventArgs e)
+        {
+            this.Show();
+        }
         private void makeAction(int action)
         {
             switch(action)
@@ -94,27 +131,45 @@ namespace ShumilkinLabs
 
         private void computeOperation()
         {
-            int a = int.Parse(operands.Pop());
-            int b = int.Parse(operands.Pop());
-
-            switch(operations.Pop())
+            OperandNode a = operands.Pop();
+            OperandNode b = operands.Pop();
+            string code;
+            int lvl = Math.Max(a.lvl, b.lvl);
+            string n = Environment.NewLine;
+            switch (operations.Pop())
             {
                 case "+":
-                    operands.Push((a + b).ToString());
+                    code = $"{a.code}{n}STORE {lvl}{n}LOAD {b.code}{n}ADD {lvl}";
+                    operands.Push(new OperandNode(code, lvl+1));
                     break;
                 case "*":
-                    operands.Push((a * b).ToString());
+                    code = $"{a.code}{n}STORE {lvl}{n}LOAD {b.code}{n}MPY {lvl}";
+                    operands.Push(new OperandNode(code, lvl+1));
                     break;
             }
         }
         private string readNumber(int indx)
         {
-            string res = "";
+            string res = "=";
             while(char.IsDigit(expression[indx]) || expression[indx] == ',')
             {
                 res += expression[indx];
                 indx++;
             }
+            return res;
+        }
+
+        private string readLetter(int indx)
+        {
+            string res = "";
+            char next = expression[indx];
+
+            if (char.IsLetter(next) && next != '+' && next != '*' && next != '(' && next != ')' && next != '=' && next != '$')
+            {
+                res += next;
+                indx++;
+            }
+            
             return res;
         }
 
@@ -159,8 +214,18 @@ namespace ShumilkinLabs
         private void menuClear_Click(object sender, EventArgs e)
         {
             textExpr.Text = "";
-            textAnsw.Text = "";
         }
 
+    }
+    
+    class OperandNode 
+    {
+        public OperandNode(string code, int lvl)
+        {
+            this.code = code;
+            this.lvl = lvl;
+        }
+        public string code;
+        public int lvl;
     }
 }

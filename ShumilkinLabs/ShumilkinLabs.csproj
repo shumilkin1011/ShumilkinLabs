@@ -130,17 +130,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lab5_2beta.cs">
+    <Compile Include="Lab5_2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Lab5_2beta.Designer.cs">
-      <DependentUpon>Lab5_2beta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Lab5beta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lab5beta.designer.cs">
-      <DependentUpon>Lab5beta.cs</DependentUpon>
+    <Compile Include="Lab5_2.Designer.cs">
+      <DependentUpon>Lab5_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Lab5.cs">
       <SubType>Form</SubType>
@@ -189,11 +183,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lab5_2beta.resx">
-      <DependentUpon>Lab5_2beta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lab5beta.resx">
-      <DependentUpon>Lab5beta.cs</DependentUpon>
+    <EmbeddedResource Include="Lab5_2.resx">
+      <DependentUpon>Lab5_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lab5.resx">
       <DependentUpon>Lab5.cs</DependentUpon>

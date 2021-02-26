@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace ShumilkinLabs
 {
-    public partial class Lab5_2beta : Form
+    public partial class Lab5_2 : Form
     {
-        public Lab5_2beta(string str)
+        public Lab5_2(string str)
         {
             InitializeComponent();
             textBox1.Text = str;

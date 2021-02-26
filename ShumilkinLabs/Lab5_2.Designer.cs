@@ -1,6 +1,6 @@
 ﻿namespace ShumilkinLabs
 {
-    partial class Lab5_2beta
+    partial class Lab5_2
     {
         /// <summary>
         /// Required designer variable.

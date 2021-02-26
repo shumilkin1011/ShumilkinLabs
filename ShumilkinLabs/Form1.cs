@@ -54,7 +54,7 @@ namespace ShumilkinLabs
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var Lab5 = new Lab5beta();
+            var Lab5 = new Lab5();
             Lab5.FormClosed += lab1_Closed1;
             Lab5.Show();
             this.Hide();
