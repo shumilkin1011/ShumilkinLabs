@@ -132,7 +132,7 @@ namespace ShumilkinLabs
             {
                 FillTransitions();
                 CheckWord();
-                Lab4_2 answ = new Lab4_2(result.ToString());
+                Lab6_2 answ = new Lab6_2(result.ToString());
                 answ.FormClosed += SubFormClosed;
                 answ.ShowDialog();
             }
